@@ -41,13 +41,13 @@ This user guide describes how to connect the [SAM E54 Xplained Pro Evaluation Ki
  
     Weather click feature the BME280 integrated environmental unit from Bosch. It’s a sensor that detects humidity, pressure, and temperature, specifically designed for low current consumption and long-term stability. The click is designed to work on a 3.3V power supply. It communicates with the target microcontroller over SPI or I2C interface.
 
-    <img src=".//media/Weather_Click.png" style="width:2.0in;height:1.in" alt="A screenshot of a cell phone Description automatically generated" />
+    <img src=".//media/Weather_Click.png" style="width:2.0in;height:2.0in" alt="A screenshot of a cell phone Description automatically generated" />
 
  - [mikroBUS™ Xplained Pro](https://www.microchip.com/en-us/development-tool/ATMBUSADAPTER-XPRO) (QTY = 2)
 
     The mikroBUS™ Xplained Pro (XPRO) is an extension board in the Xplained Pro evaluation platform. It is designed to demonstrate mikroBUS™ click boards with Xplained Pro MCU boards. Two of these extension boards are required to run the full demonstration (one each for the ATECC608B TRUST & Weather click boards).
 
-    <img src=".//media/mikroBUS_XPRO.png" style="width:3.0in;height:1.in" alt="A screenshot of a cell phone Description automatically generated" />
+    <img src=".//media/mikroBUS_XPRO.png" style="width:2.0in;height:1.0in" alt="A screenshot of a cell phone Description automatically generated" />
 
 Using the two mikroBUS™ Xplained Pro extension boards, connect the `ATECC608B Trust` and `Weather click` boards to the ATSAME54-XPRO's `EXT1` & `EXT2` expansion headers, respectively.
 
@@ -213,11 +213,11 @@ In this section, you use the IoT Central application to create a new device. You
 
     <img src=".//media/Picture7.png" />
 
-- Select the Create button. The newly created device will appear in the All devices list. 
+- Select the `Create` button. The newly created device will appear in the All devices list. 
 
 - Select on the device name to show details.
 
-- Select Connect on the top menu bar to configure the device connection parameters.
+- Select `Connect` on the top menu bar to configure the device connection parameters.
 
 - On the connection screen, select `Individual enrollment` as the Authentication type and Certificates (X.509) as the Authentication method.
 
@@ -259,9 +259,9 @@ This was created using the IoT Central’s Device Template editor. To create you
 
 1.	Select Device templates from IoT Central’s left hand menu and click the “+ New” button.
 
-2.	Select IoT Device, then hit the “Next: Customize” button at the bottom of the screen.
+2.	Select IoT Device, then hit the `Next: Customize` button at the bottom of the screen.
 
-3.	Name your device template “MyWeatherClick”, and click “Next: Review”
+3.	Name your device template `MyWeatherClick`, and click “Next: Review”
 
 4.	Select Custom Model. At this point there are a couple of ways you can proceed.  One way is to examine the Thermostat device template.  You can use the +Add capability button, and recreate the thermostat model using the graphical editor. This is a straightforward activity, albeit tedious. An easier way to enter the model is to leverage the DTDL model file that was created for the example, and edit the DTDL model in IoT Central's model editor.
 
