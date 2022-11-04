@@ -80,6 +80,10 @@ This high-level architecture description summarizes the interactions between the
 
 - [Device Provisioning Service (DPS)](https://docs.microsoft.com/en-us/azure/iot-dps/): a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT Hub without requiring human intervention, allowing customers to automatically provision millions of devices in a secure and scalable manner
 
+- [Public Key Cryptography Standards number 11 (PKCS#11)](https://www.microchip.com/en-us/about/media-center/blog/2022/atecc608-trustflex-secure-element): an interface to trigger cryptographic operations that will leverage secrets (the keys). In simple terms, it is a standard interface between an operating system and a Hardware Security Module (HSM), which in this case is the ATECC608B secure element and Azure RTOS. Microsoft Azure has conveniently integrated the PKCS#11 interface inside its Azure RTOS. Cryptographic commands will go through Azure RTOS to PKCS#11 but there is an intermediate library needed: Microchip [CryptoAuthLib](https://www.microchip.com/CryptoAuthlib). This library makes the secure element agnostic of the MCU or processor. CryptoAuthLib already supports calls from a PKCS#11 interface and translates them into low-level commands to the ATECC608B TrustFLEX or TA100 secure element as shown in the graphic below.
+
+    <img src=".//media/Cryptoauthlib-Block-Diagram.png" />
+
 On successful authentication, the ATSAME54-XPRO Development Board will be provisioned to the correct IoT Hub that is pre-linked to DPS during the setup process. We can then leverage Azure IoT Central's application platform services (easy-to-use, highly intuitive web-based graphical tools used for interacting with and testing your IoT devices at scale).
 
 ### TLS connection
