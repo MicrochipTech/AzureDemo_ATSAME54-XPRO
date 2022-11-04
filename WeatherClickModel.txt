@@ -1,0 +1,147 @@
+{
+    "@id": "dtmi:test:WeatherClick;1",
+    "@type": "Interface",
+    "contents": [
+        {
+            "@id": "dtmi:test:WeatherClick:temperature;1",
+            "@type": [
+                "Telemetry",
+                "Temperature"
+            ],
+            "displayName": {
+                "en": "Temperature"
+            },
+            "name": "temperature",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:test:WeatherClick:pressure;1",
+            "@type": [
+                "Telemetry",
+                "Pressure"
+            ],
+            "displayName": {
+                "en": "Pressure"
+            },
+            "name": "pressure",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:test:WeatherClick:humidity;1",
+            "@type": [
+                "Telemetry",
+                "Humidity"
+            ],
+            "displayName": {
+                "en": "Humidity"
+            },
+            "name": "humidity",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:test:WeatherClick:getMaxMinReport;1",
+            "@type": "Command",
+            "commandType": "synchronous",
+            "description": {
+                "en": "This command returns the max-min report"
+            },
+            "displayName": {
+                "en": "Get Min-Max Report"
+            },
+            "name": "getMaxMinReport",
+            "request": {
+                "@type": "CommandPayload",
+                "description": {
+                    "en": "Start time for reporting"
+                },
+                "displayName": {
+                    "en": "Since"
+                },
+                "name": "since",
+                "schema": "dateTime"
+            },
+            "response": {
+                "@type": "CommandPayload",
+                "displayName": {
+                    "en": "Temperature Report"
+                },
+                "name": "tempReport",
+                "schema": {
+                    "@type": "Object",
+                    "displayName": {
+                        "en": "Object"
+                    },
+                    "fields": [
+                        {
+                            "displayName": {
+                                "en": "Max Temperature"
+                            },
+                            "name": "maxTemp",
+                            "schema": "double"
+                        },
+                        {
+                            "displayName": {
+                                "en": "Min Temperature"
+                            },
+                            "name": "minTemp",
+                            "schema": "double"
+                        },
+                        {
+                            "displayName": {
+                                "en": "Average Temperature"
+                            },
+                            "name": "avgTemp",
+                            "schema": "double"
+                        },
+                        {
+                            "displayName": {
+                                "en": "Start Time"
+                            },
+                            "name": "startTime",
+                            "schema": "dateTime"
+                        },
+                        {
+                            "displayName": {
+                                "en": "End Time"
+                            },
+                            "name": "endTime",
+                            "schema": "dateTime"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "@id": "dtmi:test:WeatherClick:targetTemperature;1",
+            "@type": [
+                "Property",
+                "Temperature"
+            ],
+            "displayName": {
+                "en": "Target Temperature"
+            },
+            "name": "targetTemperature",
+            "schema": "double",
+            "writable": true
+        },
+        {
+            "@id": "dtmi:test:WeatherClick:maxTempSinceLastReboot;1",
+            "@type": [
+                "Property",
+                "Temperature"
+            ],
+            "displayName": {
+                "en": "Max Temp Since Last Reboot"
+            },
+            "name": "maxTempSinceLastReboot",
+            "schema": "double"
+        }
+    ],
+    "displayName": {
+        "en": "WeatherClick"
+    },
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
+    ]
+}

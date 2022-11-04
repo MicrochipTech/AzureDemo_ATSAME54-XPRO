@@ -1,0 +1,6 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: cryptoauthlib_test}
+children:
+- type: ElementPosition
+  attributes: {x: '1050', y: '100', id: cryptoauthlib_test}
