@@ -271,8 +271,6 @@ This was created using the IoT Central’s Device Template editor. To create you
 
 6.	Replace everything below the top `@ID` line with elements that follow in the `WeatherClickModel.txt`.
 
-    <img src=".//media/Picture17.png" />
-
 7.	Update all the “@id” fields for each DTDL element, so they use your model ID.
 
     <img src=".//media/Picture18.png" />
