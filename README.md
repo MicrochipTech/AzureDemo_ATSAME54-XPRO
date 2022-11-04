@@ -136,8 +136,6 @@ The web UI lets you quickly connect devices, monitor device conditions, create r
 
 There are several ways to connect devices to Azure IoT. In this section, you learn how to connect a device by using Azure IoT Central. This user guide provide the steps to connect a single device to IoT Central using the individual enrollment method based on X.509 certification (with the ATECC608B’s device certificate).  This is the easiest way to develop a proof of concept that utilizes the full features of the ATECC608B secure element.
 
-<img src=".//media/Picture1.png" />
-
 ### 3. Reading the ATECC608B Certificate Information
 
 To register a device on IoT Central using the X.509 individual enrollment method, we need two items that are contained within the ATECC608B.  We need the Common Name from the device certificate. This will be used as the device ID when we create a new device.  We also need the certificate saved as a *.PEM file, which is uploaded when we select an individual enrollment using X.509 certificates. The Azure RTOS demonstration application reads the certificate from the ATECC608B, and outputs this information on its debug serial port.
@@ -187,59 +185,55 @@ To register a device on IoT Central using the X.509 individual enrollment method
 
 ### 5. Create the IoT Central Application
 
-1.	Sign into the Azure [IoT Central Portal](https://apps.azureiotcentral.com/home) and select `Build` on the side navigation menu
+- Sign into the Azure [IoT Central Portal](https://apps.azureiotcentral.com/home) and select `Build` on the side navigation menu
 
-    <img src=".//media/Picture3.png" />
-
-2.	Select `Create app` in the Custom app tile
+- Select `Create app` in the Custom app tile
 
     <img src=".//media/Picture4.png" />
 
-3.	Add `Application Name` and a `URL` (suggest using the auto-generated defaults)
+- Add `Application Name` and a `URL` (suggest using the auto-generated defaults)
 
-4.	Choose the pricing plan (recommend `Standard 2` as this allows the most messages and have 2 free devices connected for evaluation purposes)
+- Choose the pricing plan (recommend `Standard 2` as this allows the most messages and have 2 free devices connected for evaluation purposes)
 
     <img src=".//media/Picture5.png" />
 
-5.	Select `Create`. After IoT Central provisions the application, it redirects you automatically to the new application which can be accessed in the future via the IoT Central portal or directly using the URL for the application
+- Select `Create`. After IoT Central provisions the application, it redirects you automatically to the new application which can be accessed in the future via the IoT Central portal or directly using the URL for the application
 
 ### 6. Create a New Device in the IoT Central Application
 
 In this section, you use the IoT Central application to create a new device. You will use the connection information for the newly created device to securely connect your physical device in a later section. To create a device:
 
-1.	From the application web page, select `Devices` on the side navigation menu.
+- From the application web page, select `Devices` on the side navigation menu.
 
-2.	Select `Create a device` from the `All devices` pane to open the `Create a new device` window (if you're reusing an existing application that already has one or more devices, select `+ New` to open the window).
+- Select `Create a device` from the `All devices` pane to open the `Create a new device` window (if you're reusing an existing application that already has one or more devices, select `+ New` to open the window).
 
-3.	Leave Device template as `Unassigned`. The device template will be assigned during the connection based on the the model ID used in the project.
+- Leave Device template as `Unassigned`. The device template will be assigned during the connection based on the the model ID used in the project.
 
-4.	Set the `Device name` and `Device ID`.  The device name can be set freely, but the Device ID must be set to the common name of the X.509 certificate in the ATECC608B.
-
-    <img src=".//media/Picture6.png" />
+- Set the `Device name` and `Device ID`.  The device name can be set freely, but the Device ID must be set to the common name of the X.509 certificate in the ATECC608B.
 
     <img src=".//media/Picture7.png" />
 
-5.	Select the Create button. The newly created device will appear in the All devices list. 
+- Select the Create button. The newly created device will appear in the All devices list. 
 
-6.	Select on the device name to show details.
+- Select on the device name to show details.
 
-7.	Select Connect on the top menu bar to configure the device connection parameters.
+- Select Connect on the top menu bar to configure the device connection parameters.
 
-8.	On the connection screen, select `Individual enrollment` as the Authentication type and Certificates (X.509) as the Authentication method.
+- On the connection screen, select `Individual enrollment` as the Authentication type and Certificates (X.509) as the Authentication method.
 
     <img src=".//media/Picture8.png" />
 
-9.	For the primary certificate, click folder icon and select the `device_cert.pem` file created earlier.  If the Save button is not enabled, upload the same `device_cert.pem` file for the secondary certificate.  The ATECC608 only has one certificate stored in it, but this workaround allows uploading the ATECC608B’s certificate to IoT Central. Note the ID scope for your application above (hat will be used in the next step).
+- For the primary certificate, click folder icon and select the `device_cert.pem` file created earlier.  If the Save button is not enabled, upload the same `device_cert.pem` file for the secondary certificate.  The ATECC608 only has one certificate stored in it, but this workaround allows uploading the ATECC608B’s certificate to IoT Central. Note the ID scope for your application above (hat will be used in the next step).
 
 ### 7. Update the ID Scope in the Project
 
-The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.  Rebuild and program the SAME54 Xplained Demo Board. Run the demonstration. You should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
+- The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.  Rebuild and program the SAME54 Xplained Demo Board. Run the demonstration. You should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
 
-<img src=".//media/Picture9a.png" />
+    <img src=".//media/Picture9a.png" />
 
-Go to the Device List in IoT Central and Select the device. You can view data being sent to the platform on the Raw Data Tab.  See example below.
+- Go to the Device List in IoT Central and Select the device. You can view data being sent to the platform on the Raw Data Tab.  See example below.
 
-<img src=".//media/Picture10.png" />
+    <img src=".//media/Picture10.png" />
 
 ### 8. Enable the Weather Click for Temperature Measurements
 
@@ -257,7 +251,7 @@ The Weather Click can also measure atmospheric pressure and relative humidity, b
 
   <img src=".//media/Picture14.png" />
 
-When we disable the USE_THERMOSTAT_MODELID, the code has a spot for a new MODEL_ID to be inserted.  An example Model ID is in the code, but this is not a publicly published model ID.
+When we disable the use of `USE_THERMOSTAT_MODELID`, the code has a spot for a new `MODEL_ID` to be inserted.  An example model ID is in the code, but this is not a publicly published model ID.
 
   <img src=".//media/Picture15.png" />
 
@@ -271,11 +265,11 @@ This was created using the IoT Central’s Device Template editor. To create you
 
 4.	Select Custom Model. At this point there are a couple of ways you can proceed.  One way is to examine the Thermostat device template.  You can use the +Add capability button, and recreate the thermostat model using the graphical editor. This is a straightforward activity, albeit tedious. An easier way to enter the model is to leverage the DTDL model file that was created for the example, and edit the DTDL model in IoT Central's model editor.
 
-5.	Click the `{} Edit DTL` button.  This will pull up a text editor with the default empty DTDL model. Your new device template, prior to adding in any capabilities will have a model that looks like this.  The model ID shown below in the “@id” field is unique to your application. This will eventually be put into the device project in `sample_config.h`.
+5.	Click the `{} Edit DTL` button.  This will pull up a text editor with the default empty DTDL model. Your new device template, prior to adding in any capabilities will have a model that looks like this.  The model ID shown below in the `@id` field is unique to your application. This will eventually be put into the device project in `sample_config.h`.
 
     <img src=".//media/Picture16.png" />
 
-6.	Replace everything below the top “@ID” line with elements that follow in the `WeatherClickModel.txt`.
+6.	Replace everything below the top `@ID` line with elements that follow in the `WeatherClickModel.txt`.
 
     <img src=".//media/Picture17.png" />
 
