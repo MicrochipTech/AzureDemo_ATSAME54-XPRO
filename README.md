@@ -227,11 +227,11 @@ In this section, you use the IoT Central application to create a new device. You
 
     <img src=".//media/Picture8.png" />
 
-- For the primary certificate, click folder icon and select the `device_cert.pem` file created earlier.  If the Save button is not enabled, upload the same `device_cert.pem` file for the secondary certificate.  The ATECC608 only has one certificate stored in it, but this workaround allows uploading the ATECC608B’s certificate to IoT Central. Note the ID scope for your application above (hat will be used in the next step).
+- For the primary certificate, click the folder icon and browse to the `device_cert.pem` file created earlier.  If the `Save` button is not enabled, upload the same `device_cert.pem` file for the secondary certificate.  The ATECC608B only has one certificate stored in it, but this workaround allows uploading the ATECC608B’s certificate to IoT Central. Note the ID scope for your application above (that will be used in the next step).
 
 ### 7. Update the ID Scope in the Project
 
-- The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.  Rebuild and program the SAME54 Xplained Demo Board. Run the demonstration. You should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
+- The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.  Rebuild the project and program the SAME54 Xplained Demo Board. After the board has been reset, you should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
 
     <img src=".//media/Picture9a.png" />
 
