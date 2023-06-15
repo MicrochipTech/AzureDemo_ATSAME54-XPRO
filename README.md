@@ -150,13 +150,13 @@ To register a device on IoT Central using the X.509 individual enrollment method
 
 - Launch the MPLAB X IDE and open the provided example project `same54_iotc_demo.X` (located in the `firmware` sub-directory)
 
-    <img src=".//media/Picture1a.png" style="width:2.5in;height:1.in" alt="A screenshot of a cell phone Description automatically generated"/>
+    <img src=".//media/Picture1a.png" width=300/>
 
-    <img src=".//media/Picture1b.png" style="width:3.5in;height:2.0in" alt="A screenshot of a cell phone Description automatically generated"/>
+    <img src=".//media/Picture1b.png" width=450/>
 
 - Open the `sample_config.h` header file by double-clicking on the file in the `Projects` window
 
-    <img src=".//media/Picture1c.png" style="width:2.5in;height:1.in" alt="A screenshot of a cell phone Description automatically generated"/>
+    <img src=".//media/Picture1c.png" width=250/>
 
 - Search for the following definitions:
 
@@ -174,6 +174,14 @@ To register a device on IoT Central using the X.509 individual enrollment method
     The project will have a pre-existing ID scope defined, but this value will need to be updated to the one used by your specific IoT Central application after it has been created.
 
     The `USE_WEATHER_CLICK` definition enables code that will communicate with a MikroBUS™ Weather click if it is installed on the `EXT2` expansion header.  This is disabled by default since many users will not have this board. It is recommended to leave this disabled at this point.  It can be enabled after the board is communicating with the IoT Central application.
+
+- In the Projects view, configure the MPLAB X project by right-clicking on `same54_iotc_demo` and selecting `Properties` in the drop-down menu
+
+    <img src=".//media/Picture1e.png" width=250/>
+
+- Select `SAM E54 Xplained Pro` as the Connected Hardware Tool and click on the latest version of XC32 compiler that is currently installed
+
+    <img src=".//media/Picture1f.png" width=400/>
 
 - Build, program, and run the project in one operation by clicking on the `Make and Program Device` icon in the MPLAB X main toolbar
 
