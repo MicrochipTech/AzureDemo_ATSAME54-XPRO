@@ -868,7 +868,8 @@ static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT *prov_client_ptr,
 UINT status;
 
     printf("Start Provisioning Client...\r\n");
-
+    printf("Endpoint: %s; ID Scope: %s; Registration ID: %s.\r\n", ENDPOINT, ID_SCOPE, g_registration_id);
+    
     /* Initialize IoT provisioning client.  */
     if ((status = nx_azure_iot_provisioning_client_initialize(prov_client_ptr, &nx_azure_iot,
                                                               (UCHAR *)ENDPOINT, sizeof(ENDPOINT) - 1,

@@ -29,11 +29,11 @@ This user guide describes how to connect the [SAM E54 Xplained Pro Evaluation Ki
 
  The ATSAME54-XPRO development board connects to the Internet using a standard RJ45 Ethernet cable, so a direct connection to an Ethernet router is required. In addition to the board's connection to a router, the following hardware components are required to successfully run the demonstration:
 
- - [ATECC608B Trust](https://www.microchip.com/en-us/development-tool/DT100104)
+ - [ATECC608B TRUST](https://www.microchip.com/en-us/development-tool/DT100104)
 
-    The ATECC608B Trust is an add-on board for the CryptoAuth Trust Platform and other Microchip development platforms that contain a [mikroBUS™](https://www.mikroe.com/mikrobus) header. The board supports a [mikroElektronika](https://www.mikroe.com) header that connects to any board that has a mikroBUS™ connection. This board provides an alternative to the sample units that require a socket board for doing the initial development and testing.
+    The ATECC608B TRUST is an add-on board for the CryptoAuth Trust Platform and other Microchip development platforms that contain a [mikroBUS™](https://www.mikroe.com/mikrobus) header. The board supports a [mikroElektronika](https://www.mikroe.com) header that connects to any board that has a mikroBUS™ connection. This board provides an alternative to the sample units that require a socket board for doing the initial development and testing.
 
-    The ATECC608B Trust contains the ATECC608B secure elements – [Trust&GO™](https://www.microchip.com/en-us/products/security/trust-platform/trust-and-go), [TrustFLEX™](https://www.microchip.com/en-us/products/security/trust-platform/trustflex) and [TrustCUSTOM™](https://www.microchip.com/en-us/products/security/trust-platform/trustcustom). This provides a user the ability to develop solutions with any of these secure elements based on the requirements of the application. The user guide provides a physical overview of the connections and switch settings implemented on the board. 
+    The ATECC608B TRUST contains the ATECC608B secure elements – [Trust&GO™](https://www.microchip.com/en-us/products/security/trust-platform/trust-and-go), [TrustFLEX™](https://www.microchip.com/en-us/products/security/trust-platform/trustflex) and [TrustCUSTOM™](https://www.microchip.com/en-us/products/security/trust-platform/trustcustom). This provides a user the ability to develop solutions with any of these secure elements based on the requirements of the application. The user guide provides a physical overview of the connections and switch settings implemented on the board. 
 
     <img src=".//media/ATECC608B_Trust_Board.jpeg" style="width:2.5in;height:1.in" alt="A screenshot of a cell phone Description automatically generated" />
 
@@ -55,7 +55,7 @@ Confirm that the dip switch and jumper settings are correct for the ATECC608B Tr
 
 <img src=".//media/ATECC608B_Trust_Settings.png" />
 
-Complete the hardware setup by connecting micro-USB & Ethernet cables to their respective connectors as shown.
+Complete the hardware setup by connecting micro-USB & Ethernet cables to their respective connectors as shown. Connect the board to the PC using the USB connector (located in one corner of the board) labeled `USB DEBUG` (note there are 2 different-labeled USB connectors on the board). The Ethernet cable needs to be plugged directly into the RJ45 jack of any standard switch/hub/router with Internet connectivity.
 
 <img src=".//media/Picture11.jpg" />
 
@@ -130,6 +130,10 @@ Embedded software development tools from Microchip need to be pre-installed in o
 
 - Any [Terminal Emulator](https://en.wikipedia.org/wiki/List_of_terminal_emulators) program of your choice
 
+- Launch the terminal emulator program (e.g. PuTTY, TeraTerm, etc.) and connect to the COM port corresponding to your board at `115200 baud` (e.g. open PuTTY Configuration window &gt; choose `session` &gt; choose `Serial`&gt; enter/select the right COMx port). For example, you can find the right COM port number by opening your PC’s `Device Manager` &gt; expand `Ports(COM & LPT)` &gt; take note of `USB Serial Device (COMx)`
+
+    <img src=".//media/image43.png"/>
+
 ### 2. Connecting to Azure IoT Central
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. Use [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/overview-iot-central), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development processes.
@@ -175,23 +179,31 @@ To register a device on IoT Central using the X.509 individual enrollment method
 
     The `USE_WEATHER_CLICK` definition enables code that will communicate with a MikroBUS™ Weather click if it is installed on the `EXT2` expansion header.  This is disabled by default since many users will not have this board. It is recommended to leave this disabled at this point.  It can be enabled after the board is communicating with the IoT Central application.
 
-- In the Projects view, configure the MPLAB X project by right-clicking on `same54_iotc_demo` and selecting `Properties` in the drop-down menu
+- In the `Projects` view, configure the MPLAB X project by right-clicking on `same54_iotc_demo` and selecting `Properties` in the drop-down menu
 
     <img src=".//media/Picture1e.png" width=250/>
 
-- Select `SAM E54 Xplained Pro` as the Connected Hardware Tool and click on the latest version of XC32 compiler that is currently installed
+- Select `SAM E54 Xplained Pro` as the "Connected Hardware Tool" and click on the latest version of XC32 compiler that is currently installed. Click on `Apply` and then `OK`
 
-    <img src=".//media/Picture1f.png" width=400/>
+    <img src=".//media/Picture1f.png" width=500/>
 
-- Build, program, and run the project in one operation by clicking on the `Make and Program Device` icon in the MPLAB X main toolbar
+-  In the `Projects` window, right-click on the `same54_iotc_demo` project and select `Clean and Build` in the drop-down menu. The project should build without any error messages
 
-    <img src=".//media/Picture1d.png" />
+    <img src=".//media/Picture1h.png" width=300/>
 
-- You will see output messages displayed in the terminal emulator window like in the screenshot below.  Copy the certificate information, which is everything including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines. Using the text editor of your choice, paste the information into a newly-created file and save the file as `device_cert.pem`. The contents of the device certificate file should look something like the following:
+- Program the target board by clicking on the `Make and Program Device` icon in the MPLAB X main toolbar
+
+    <img src=".//media/Picture1d.png" width=500/>
+
+- Observe the messages in the MPLAB X `Output` window and confirm that the final message says `Programming complete`
+
+    <img src=".//media/Picture1g.png" width=600/>
+
+- Turn your focus to the terminal emulator window. You will see debug messages being generated as the demo program is going through its normal execution. Copy the device certificate information which is everything including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines. Using the text editor of your choice, paste the information into a newly-created file and save the file as `device_cert.pem`. The entire contents of the device certificate file should look something like the following:
 
     <img src=".//media/Picture2a.png" />
 
-- Make a note of the `Common Name` (typically this is based on a unique ID such as the device's serial number), which will also be used when we create/register the device in the IoT Central application. Once this information has been saved, you are ready to create your IoT Central Application!
+- Make a note of the `Common Name` that is output as one of the debug messages (typically this is based on a unique ID such as the device's serial number), which will also be used when we create/register the device in the IoT Central application. Once this information has been saved, you are ready to create your IoT Central Application!
 
     <img src=".//media/Picture2c.png" />
 
