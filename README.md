@@ -251,7 +251,12 @@ In this section, you use the IoT Central application to create a new device. You
 
 ### 7. Update the ID Scope in the Project
 
-- The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.  Rebuild the project and program the SAME54 Xplained Demo Board. After the board has been reset, you should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
+- The final step is to update the `ID_SCOPE` definition in `sample_config.h` to match the ID scope from the connect screen above.
+
+    <img src=".//media/Picture8a.png" width=300/>
+    <img src=".//media/Picture8b.png" width=600/>
+
+- Rebuild the project and program the SAME54 Xplained Demo Board. After the board has been reset, you should see serial output showing a successful connection, followed by telemetry sending to IoT Central.
 
     <img src=".//media/Picture9a.png" />
 

@@ -43,7 +43,7 @@ extern   "C" {
 #endif /* ENDPOINT */
 
 #ifndef ID_SCOPE
-#define ID_SCOPE                                    "0ne00A5793F"
+#define ID_SCOPE                                    "0ne00AC3F53"
 #endif /* ID_SCOPE */
 
 extern UCHAR g_registration_id[32];
